@@ -1,5 +1,6 @@
 library network_settings_state;
 
+import 'src/network_settings_snapshot.dart';
 import 'src/network_settings_state_platform_interface.dart';
 
 export 'src/network_settings_snapshot.dart';

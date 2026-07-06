@@ -10,9 +10,9 @@ class ExampleApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'network_settings_state example',
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
@@ -34,8 +34,8 @@ class _HomePageState extends State<HomePage> {
     _loadSnapshot();
 
     NetworkSettingsState.onChanged.listen(
-      (snapshot) => setState(() => _snapshot = snapshot),
-      onError: (error) => setState(() => _error = error),
+      (NetworkSettingsSnapshot snapshot) => setState(() => _snapshot = snapshot),
+      onError: (Object error) => setState(() => _error = error),
     );
   }
 
