@@ -78,4 +78,4 @@ Issues and pull requests are welcome at <https://github.com/the-little-hackers/n
 
 ## License
 
-MIT (©) 2026, The Little Hackers
+MIT © 2026, The Little Hackers
