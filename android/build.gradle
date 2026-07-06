@@ -1,10 +1,10 @@
-group 'com.thelittlehackers.network_settings_state'
-version '0.1.0'
-
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
+
+group 'com.thelittlehackers.network_settings_state'
+version '0.1.2'
  
 android {
     namespace 'com.thelittlehackers.network_settings_state'
