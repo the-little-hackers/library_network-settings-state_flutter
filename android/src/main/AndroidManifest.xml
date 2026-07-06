@@ -2,6 +2,15 @@
     package="com.thelittlehackers.network_settings_state">
 
     <!--
+      Required for `WifiManager.isWifiEnabled()` to be usable at al.  Unlike
+      `READ_PHONE_STATE` below, there is no fail-open path for a missing 
+      `ACCESS_WIFI_STATE` permission: the call throws a `SecurityException`
+      without it.  This is a normal (non-dangerous) permission, so it does 
+      not require a runtime prompt and is safe to declare unconditionally.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!--
       Required on API < 29 for TelephonyManager.isDataEnabled to return
       a reliable value.  If not granted, the plugin fails open and
       returns `true` for isMobileDataEnabled() rather than blocking on
