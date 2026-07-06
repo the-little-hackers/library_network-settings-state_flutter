@@ -3,9 +3,9 @@
 
     <!--
       Required on API < 29 for TelephonyManager.isDataEnabled to return
-      a reliable value. If not granted, the plugin fails open and
+      a reliable value.  If not granted, the plugin fails open and
       returns `true` for isMobileDataEnabled() rather than blocking on
-      an unrelated permission gap. Consuming apps should request this
+      an unrelated permission gap.  Consuming apps should request this
       permission themselves if they need reliability on older OS
       versions; the plugin does not request it automatically.
     -->
