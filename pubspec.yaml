@@ -3,7 +3,7 @@ description: >
   Query whether Wi-Fi and mobile data are enabled in the device's system
   settings, independent of which network is currently carrying traffic.
   Complements connectivity_plus rather than replacing it.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/the-little-hackers/network_settings_state
 repository: https://github.com/the-little-hackers/network_settings_state
 issue_tracker: https://github.com/the-little-hackers/network_settings_state/issues
