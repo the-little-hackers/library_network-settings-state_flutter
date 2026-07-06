@@ -13,7 +13,7 @@ import UIKit
 public class NetworkSettingsStatePlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
 
     private let pathMonitor = NWPathMonitor()
-    private let monitorQueue = DispatchQueue(label: "org.thelittlehackers.network_settings_state.monitor")
+    private let monitorQueue = DispatchQueue(label: "com.thelittlehackers.network_settings_state.monitor")
     private var eventSink: FlutterEventSink?
 
     public static func register(with registrar: FlutterPluginRegistrar) {

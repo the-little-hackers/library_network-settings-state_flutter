@@ -26,7 +26,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: org.thelittlehackers.network_settings_state
+        package: com.thelittlehackers.network_settings_state
         pluginClass: NetworkSettingsStatePlugin
       ios:
         pluginClass: NetworkSettingsStatePlugin

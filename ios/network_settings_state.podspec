@@ -8,7 +8,7 @@ settings, independent of which network is currently carrying traffic.
                        DESC
   s.homepage         = 'https://github.com/the-little-hackers/network_settings_state'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'The Little Hackers' => 'hello@thelittlehackers.org' }
+  s.author           = { 'The Little Hackers' => 'hello@thelittlehackers.com' }
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'
   s.dependency 'Flutter'

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.thelittlehackers.network_settings_state">
+    package="com.thelittlehackers.network_settings_state">
 
     <!--
       Required on API < 29 for TelephonyManager.isDataEnabled to return

@@ -1,4 +1,4 @@
-group 'org.thelittlehackers.network_settings_state'
+group 'com.thelittlehackers.network_settings_state'
 version '0.1.0'
 
 buildscript {
@@ -10,7 +10,7 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:8.1.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'org.thelittlehackers.network_settings_state'
+    namespace 'com.thelittlehackers.network_settings_state'
     compileSdk 34
 
     defaultConfig {

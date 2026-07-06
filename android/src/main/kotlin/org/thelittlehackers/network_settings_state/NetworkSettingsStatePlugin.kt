@@ -1,4 +1,4 @@
-package org.thelittlehackers.network_settings_state
+package com.thelittlehackers.network_settings_state
 
 import android.content.BroadcastReceiver
 import android.content.Context
