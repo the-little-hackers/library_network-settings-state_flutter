@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'network_settings_state'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'Query whether Wi-Fi and mobile data are enabled in device settings.'
   s.description      = <<-DESC
 Query whether Wi-Fi and mobile data are enabled in the device's system
