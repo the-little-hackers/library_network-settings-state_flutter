@@ -1,0 +1,14 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.thelittlehackers.network_settings_state">
+
+    <!--
+      Required on API < 29 for TelephonyManager.isDataEnabled to return
+      a reliable value. If not granted, the plugin fails open and
+      returns `true` for isMobileDataEnabled() rather than blocking on
+      an unrelated permission gap. Consuming apps should request this
+      permission themselves if they need reliability on older OS
+      versions; the plugin does not request it automatically.
+    -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+</manifest>

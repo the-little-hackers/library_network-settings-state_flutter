@@ -1,0 +1,32 @@
+name: network_settings_state
+description: >
+  Query whether Wi-Fi and mobile data are enabled in the device's system
+  settings, independent of which network is currently carrying traffic.
+  Complements connectivity_plus rather than replacing it.
+version: 0.1.0
+homepage: https://github.com/the-little-hackers/network_settings_state
+repository: https://github.com/the-little-hackers/network_settings_state
+issue_tracker: https://github.com/the-little-hackers/network_settings_state/issues
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.1.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: org.thelittlehackers.network_settings_state
+        pluginClass: NetworkSettingsStatePlugin
+      ios:
+        pluginClass: NetworkSettingsStatePlugin
