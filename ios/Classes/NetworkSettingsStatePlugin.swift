@@ -13,8 +13,22 @@ import UIKit
 public class NetworkSettingsStatePlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
 
     private let pathMonitor = NWPathMonitor()
-    private let monitorQueue = DispatchQueue(label: "com.thelittlehackers.network_settings_state.monitor")
+    private let monitorQueue = DispatchQueue(label: "org.thelittlehackers.network_settings_state.monitor")
     private var eventSink: FlutterEventSink?
+
+    override init() {
+        super.init()
+
+        // Started unconditionally and kept running for the plugin's
+        // entire lifetime. NWPathMonitor.currentPath only reflects
+        // real state once start() has been called at least once --
+        // previously this only happened when a stream listener
+        // subscribed via onListen, so a one-shot isWifiEnabled() /
+        // getSnapshot() call made before any stream subscription would
+        // read an unstarted, unsatisfied path and incorrectly report
+        // Wi-Fi as disabled even when it was enabled and connected.
+        pathMonitor.start(queue: monitorQueue)
+    }
 
     public static func register(with registrar: FlutterPluginRegistrar) {
         let instance = NetworkSettingsStatePlugin()
@@ -62,19 +76,24 @@ public class NetworkSettingsStatePlugin: NSObject, FlutterPlugin, FlutterStreamH
     public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
         eventSink = events
 
+        // The monitor is already running (started in init); just hook
+        // up the update handler to forward changes to the stream.
         pathMonitor.pathUpdateHandler = { [weak self] _ in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.eventSink?(self.currentSnapshot())
             }
         }
-        pathMonitor.start(queue: monitorQueue)
 
         return nil
     }
 
     public func onCancel(withArguments arguments: Any?) -> FlutterError? {
-        pathMonitor.cancel()
+        // Deliberately does NOT call pathMonitor.cancel() -- the
+        // monitor must keep running for the plugin's lifetime so that
+        // one-shot method channel calls (isWifiEnabled, getSnapshot)
+        // continue to work after a stream listener unsubscribes.
+        pathMonitor.pathUpdateHandler = nil
         eventSink = nil
         return nil
     }
